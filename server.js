@@ -54,14 +54,14 @@ const server = http.createServer((req, res) => {
                     <p id="dimensions"></p>
                     <p>Извините, такая страница не существует.</p>
                     <a href="/">Вернуться на главную страницу</a>
-                <script>
+                    <script>
                     function updateDimensions() {
                         const width = window.innerWidth;
                         const height = window.innerHeight;
                         document.getElementById('dimensions').textContent = \`Ширина: \${width}px, Высота: \${height}px\`;}
                         updateDimensions();
                         window.addEventListener('resize', updateDimensions);
-                </script >
+                    </script >
                 </body></html>`);
     }
 });

@@ -1,0 +1,16 @@
+{
+  "name": "quadratic-solver",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "math",
+    "quadratic",
+    "equation"
+  ],
+  "author": "Konstantin Braitsau",
+  "license": "MIT",
+  "description": "Библиотека для решения квадратных уравнений."
+}
