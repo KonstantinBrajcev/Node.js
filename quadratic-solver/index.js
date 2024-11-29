@@ -1,4 +1,3 @@
-// index.js
 function solveQuadratic(a, b, c) {
   if (a === 0) {
     throw new Error("Коэффициент 'a' не может быть равен 0.");
