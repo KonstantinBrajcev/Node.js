@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Вычисление корней</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Вычисление корней квадратного уравнения
+          <p>типа ax^2+bx+c=0</p>
+        </h1>
+        <form id="quadratic-form" class="mt-4">
+            <div class="form-group">
+                <label for="a">Коэффициент a:</label>
+                <input type="number" class="form-control" id="a" required>
+            </div>
+            <div class="form-group">
+                <label for="b">Коэффициент b:</label>
+                <input type="number" class="form-control" id="b" required>
+            </div>
+            <div class="form-group">
+                <label for="c">Коэффициент c:</label>
+                <input type="number" class="form-control" id="c" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Вычислить корни</button>
+        </form>
+
+        <div id="result" class="mt-6"></div>
+    </div>
+
+    <script src="index.js"></script>
+    <script>
+        document.getElementById('quadratic-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Предотвращаем отправку формы
+
+            const a = parseFloat(document.getElementById('a').value);
+            const b = parseFloat(document.getElementById('b').value);
+            const c = parseFloat(document.getElementById('c').value);
+
+            try {
+                const roots = solveQuadratic(a, b, c); // Вызов функции solveQuadratic
+
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = ''; // Очищаем предыдущие результаты
+
+                if (roots.length === 0) {
+                    resultDiv.innerHTML = '<p class="text-danger">Нет действительных корней.</p>';
+                } else {
+                    resultDiv.innerHTML = `<p class="text-success">Корни квадратного уравления: ${roots.join(', ')}</p>`;
+                }
+            } catch (error) {
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = `<p class="text-danger">${error.message}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>
